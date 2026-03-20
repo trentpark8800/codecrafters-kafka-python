@@ -1,0 +1,1 @@
+uv run --quiet -m app.main "$@"
