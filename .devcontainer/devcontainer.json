@@ -1,0 +1,27 @@
+{
+    "name": "BYO kafka Python Environment",
+    "build": {
+        "context": "..",
+        "dockerfile": "./Dockerfile"
+    },
+    "workspaceFolder": "/home/codecrafters-kafka-python",
+    "remoteUser": "coder",
+    "mounts": [
+        {
+            "source": "${localWorkspaceFolder}",
+            "target": "/home/codecrafters-kafka-python",
+            "type": "bind"
+        }
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.vscode-json"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    }
+}
