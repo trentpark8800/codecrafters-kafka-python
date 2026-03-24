@@ -17,7 +17,7 @@ def main():
             if not data:
                 break
             message_size = len(data).to_bytes(4, "big")
-            correlation_id = data[4:8]
+            correlation_id = data[8:12]
             connection.sendall(message_size)
             connection.sendall(correlation_id)
 
