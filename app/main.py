@@ -20,10 +20,10 @@ class Response:
 def read_message(data: bytes) -> Message:
 
     message: Message = Message(
-        correlation_id=int(data[8:12]),
-        message_size=int(data[0:4]),
-        request_api_key=int(data[4:6]),
-        request_api_version=int(data[6:8]),
+        correlation_id=int.from_bytes(data[8:12]),
+        message_size=int.from_bytes(data[0:4]),
+        request_api_key=int.from_bytes(data[4:6]),
+        request_api_version=int.from_bytes(data[6:8]),
     )
 
     return message
@@ -36,7 +36,7 @@ def parse_message(message: Message) -> Response:
     error_code: int = 0
 
     if message.request_api_version not in supported_versions:
-        print(f"Unsupported version {Message.request_api_version}.")
+        print(f"Unsupported version {message.request_api_version}.")
         error_code = 35
     
     response: Response = Response(
